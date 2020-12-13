@@ -1,0 +1,75 @@
+﻿@using PortailIEPSM.Areas.Groupe_6.Models;
+@model dynamic
+@{
+            ViewData["Title"] = "Gestion - Groupe 6";
+            string[] TableHeaders = new string[] {""
+          ,"IdContact"
+          ,"Nom"
+          ,"Prenom"
+          ,"GSM"
+          ,"Telephone"
+          ,"Mail"
+          ,"Genre"
+          ,"Nationalite" };
+}
+
+<div class="text-center">
+    <h1 class="display-4">Groupe n°6 : Joshua, Alex, Jonathan</h1>
+</div>
+
+<div class="text-center">
+    <h1>Liste des contacts</h1>
+</div>
+
+
+<div style="margin:20px; float:left;">
+    <a href="">
+        <input class="btn-flat" type="button" value="Ajouter un contact">
+    </a>
+</div>
+
+<div style="float:right; margin:20px;">
+    <form action="" method="">
+        <input type="text" name="search" />
+        <input type="submit" value="Rechercher" />
+    </form>
+</div>
+
+<div style="margin:20px">
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                @foreach (var head in TableHeaders)
+                {
+                    <th>
+                        @head
+                    </th>
+
+                }
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var dataBDD in Model.ContactsMod)
+            {
+            <tr>
+                <td align="center">
+                    <a href="/groupe_6/affichageContactUnique/index/@dataBDD.IdContact" class="nav-link">
+                        <i class="fa fa-eye"></i>
+                    </a>
+                </td>
+                <td>@dataBDD.IdContact</td>
+                <td>@dataBDD.Nom</td>
+                <td>@dataBDD.Prenom</td>
+                <td>@dataBDD.GSM</td>
+                <td>@dataBDD.Telephone</td>
+                <td>@dataBDD.Mail</td>
+                <td>@dataBDD.Genre</td>
+                <td>@dataBDD.Nationalite</td>
+            </tr>
+
+            }
+        </tbody>
+    </table>
+
+</div>
