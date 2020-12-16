@@ -18,7 +18,7 @@
 </div>
 
 <div class="text-center">
-    <h1>Liste des contacts</h1>
+    <h1>Liste des contacts - test</h1>
 </div>
 
 
@@ -29,10 +29,15 @@
 </div>
 
 <div style="float:right; margin:20px;">
-    <form action="" method="">
-        <input type="text" name="search" />
-        <input type="submit" value="Rechercher" />
-    </form>
+    @using (Html.BeginForm("Index", "AffichageContacts"))
+    {
+
+        @Html.TextBox("Recherche");
+
+        @<input type="text" name="search" />@
+        <input type="submit" value="Rechercher" class="form-control" />
+
+    }
 </div>
 
 <div style="margin:20px">
@@ -44,7 +49,7 @@
                     <th>
                         @head
                     </th>
-
+                    
                 }
             </tr>
         </thead>
